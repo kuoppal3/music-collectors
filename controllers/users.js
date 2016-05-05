@@ -10,7 +10,6 @@ exports.getUser = function(req, res) {
     var username = req.params.username;
 
     User.findOne({username: username}, function(err, user) {
-        console.log(user);
         if(err) {            
             return res.status(500).json({
                 err: err
@@ -63,9 +62,7 @@ exports.editUser = function(req, res) {
 
 exports.login = function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
-    console.log("USEr");
-    console.log(user);
-    console.log(info);
+
     if (err) {
       return next(err);
     }
@@ -88,8 +85,7 @@ exports.login = function(req, res, next) {
 };
 
 exports.isAuthenticated = function(req, res, next) {
-  console.log("ISAUTHETNICATED");
-  console.log(req.isAuthenticated());
+
   if (!req.isAuthenticated()) {
     return res.status(200).json({
       status: false,
@@ -107,7 +103,6 @@ exports.addAlbum = function(req, res) {
   var username = req.body.username;
 
   User.findOne({username: username}, function(err, user) {
-        console.log(user);
         if(err) {            
             return res.status(500).json({
                 err: err
@@ -135,7 +130,6 @@ exports.deleteAlbum = function(req, res) {
   var reqAlbumId = req.params.id;
 
   User.findOne({username: username}, function(err, user) {
-        console.log(user);
         if(err) {            
             return res.status(500).json({
                 err: err

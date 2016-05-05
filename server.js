@@ -36,6 +36,8 @@ app.use(session({
   secret: 'secrettexthere',
 }));
 
+app.disable('etag');
+
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 //var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
@@ -79,10 +81,11 @@ app.delete('/api/users/:username/collection/:id', users.deleteAlbum);
 
 app.post('/api/login', users.login);
 
-app.get('api/logout', function(req, res) {
-  req.logout();
-  res.status(200).json({
-    status: 'Bye!'
+app.get('/api/logout', function(req, res) {
+  req.session.destroy(function (err) {
+    if (err) { }
+    // The response should indicate that the user is no longer authenticated.
+    return res.send({ authenticated: req.isAuthenticated() });
   });
 });
 

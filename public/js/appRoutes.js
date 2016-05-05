@@ -33,28 +33,3 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
     });
 
 }]);
-
-
-
-/*angular.module('appRoutes', []).config([
-'$stateProvider',
-'$urlRouterProvider',
-function($stateProvider, $urlRouterProvider) {
-
-  $stateProvider
-    .state('home', {
-      url: '/home',
-      templateUrl: 'views/home.html',
-      controller: 'MainCtrl'
-    });
-    
-  $stateProvider
-    .state('login', {
-      url: '/login',
-      templateUrl: 'views/login.html',
-      controller: 'LoginCtrl'
-    });
-
- $urlRouterProvider.otherwise('home');
-}]);
-*/
