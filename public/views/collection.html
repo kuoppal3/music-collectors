@@ -1,0 +1,18 @@
+<!-- public/views/collection.html -->
+
+<div class="jumbotron text-center">
+    <h1>Your collection</h1>
+
+    <div class="row">
+        <table class="albums center">
+            <tr ng-repeat="album in spotifyAlbums">
+                <td class="col-md-2"></td>
+                <td class="col-md-2"><img src="{{album.images[2].url}}" alt=""/></td>
+                <td class="col-md-2"><strong>{{album.artists[0].name}}</strong></td>
+                <td class="col-md-2">{{ album.name }}</td>
+                <td class="col-md-2"><button class="btn btn-warning" ng-click="removeAlbum(album.id)">Remove from collection</button></td> 
+                <td class="col-md-2"></td>
+            </tr>
+        </table> 
+    </div>
+</div>

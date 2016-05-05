@@ -1,0 +1,45 @@
+<html>
+  <% include header %>
+
+    
+  <body ng-app="musicCollectors">
+  
+    <!-- MAIN TEMPLATE -->
+    <script type="text/ng-template" id="/home.html">
+      <div class="page-header">
+          <h1>Music Collectors</h1>
+      </div>
+      
+      <div ng-repeat="post in posts | orderBy: '-upvotes'">
+          {{post.title}} - upvotes: {{post.upvotes}}
+      </div>
+      
+      <form ng-submit="addPost()">
+          <input type="text" ng-model="title"></input>
+          <button type="submit">Post</button>
+      </form>
+    </script>
+    
+    <!-- LOGIN TEMPLATE -->
+    <script type="text/ng-template" id="/login.html">
+      <div class="page-header">
+          <h1>Login to Music Collectors</h1>
+      </div>
+      
+      <button type="submit">Login with Facebook</button>
+      
+      <form ng-submit="registerUser()">
+          <input type="text" ng-model="user"></input>
+          <input type="text" ng-model="password"></input>
+          <button type="submit">Login</button>
+      </form>
+    </script>
+      
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <ui-view></ui-view>
+      </div>
+    </div>
+
+  </body>
+</html>

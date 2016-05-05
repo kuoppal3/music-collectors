@@ -1,0 +1,56 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.with-margin {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.divider-text {
+    overflow: hidden;
+    text-align: center;
+}
+.divider-text:before,
+.divider-text:after {
+    background-color: #d3d3d3;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+.divider-text:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+.divider-text:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+.albums {
+  text-align: center;
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+table {
+    table-layout: fixed;
+    word-wrap: break-word;
+}

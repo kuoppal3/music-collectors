@@ -1,0 +1,53 @@
+<body ng-controller="LoginController">
+  <div class="jumbotron text-center pagination-centered">
+    <div class="page-header">
+        <h1>Login to Music Collectors</h1>
+    </div>
+    <div class="row">
+      <button class="btn btn-danger col-lg-offset-5 col-lg-2">Sign in with Google</button>
+    </div>
+
+    <div class="row with-margin">
+      <div class="divider-text col-lg-offset-4 col-lg-4">
+        or
+      </div>
+    </div>
+    
+    <form ng-submit="loginUser()">
+      <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+        <div class="row">
+          <div class="form-group col-lg-offset-4 col-lg-4">
+            <label for="user">Username</label>
+            <input type="text" class="form-control" id="user" name="user" ng-model="user">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="form-group col-lg-offset-4 col-lg-4">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" ng-model="password">
+          </div>
+        </div>  
+        <div class="row">
+          <button class="btn btn-success col-lg-offset-5 col-lg-2" type="submit">Login</button>
+        </div>
+    </form>
+    <div>
+      <a href="/register" class="btn btn-link">New user? Register now!</a>
+    </div>
+  </div>
+
+</body>
+
+
+<!-- <div class="page-header">
+  <h1>Login to Music Collectors</h1>
+</div>
+
+<button type="submit">Login with Facebook</button>
+
+<form ng-submit="registerUser()">
+  <input type="text" ng-model="user"></input>
+  <input type="text" ng-model="password"></input>
+  <button type="submit">Login</button>
+</form> -->

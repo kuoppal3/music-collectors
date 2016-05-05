@@ -1,0 +1,27 @@
+<!-- public/views/home.html -->
+
+<div class="jumbotron text-center">
+    <h1>Collect music {{ loggedInUser.username }}!</p></h1>
+    <div id="search-input">
+        <div class="input-group col-md-4 col-md-offset-4">
+            <input class="form-control input-lg" type="text" ng-model="searchTerm" placeholder="Search for an album">
+            <span class="input-group-btn">
+                <button class="btn btn-info btn-lg" ng-click="search()" type="button">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+    <p>{{ tagline }}</p>
+
+    <div class="row">
+        <table class="albums center">
+            <tr ng-repeat="album in spotifyAlbums">
+                <td><img src="{{album.images[2].url}}" alt=""/></td>
+                <td class="col-md-2"><strong>{{album.artists[0].name}}</strong></td>
+                <td>{{ album.name }}</td>
+                <td><button class="btn btn-info" ng-click="addAlbum(album.id)">Add to collection</button></td> 
+            </tr>
+        </table> 
+    </div>
+</div>

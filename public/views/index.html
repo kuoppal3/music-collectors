@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>Music Collectors</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-resource.js"></script>
+
+    <meta name="google-signin-client_id" content="372668777325-uu1b048sdffp0njr3pmie9sjqj7nm6cb.apps.googleusercontent.com">
+    
+    <script src="js/controllers/MainCtrl.js"></script>
+            <script src="js/services/AuthService.js"></script>
+            <script src="js/services/SpotifyService.js"></script>
+
+    <script src="js/controllers/AccountCtrl.js"></script>
+        <script src="js/controllers/CollectionCtrl.js"></script>
+    <script src="js/services/CollectionService.js"></script>
+    <script src="js/controllers/LoginCtrl.js"></script>
+    <script src="js/services/UserService.js"></script>
+
+
+    <script src="js/appRoutes.js"></script>
+    <script src="js/app.js"></script>
+
+</head>
+
+<body ng-app="musicCollectorsApp">
+<div class="container">
+
+    <!-- HEADER -->
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Music Collectors</a>
+        </div>
+
+        <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
+        <ul class="nav navbar-nav" >
+            <li><a href="/collection">Collection</a></li>
+
+            
+        </ul>
+        <ul class="nav navbar-nav navbar-right" ng-controller="AccountController">
+
+            <li ng-if="loggedInUser != null">
+              <a ng-click='myAccount()' class="btn btn-default"><span class="glyphicon glyphicon-user"></span> {{loggedInUser.username}}</a>
+            </li>
+            <li ng-if="loggedInUser != null">
+              <a ng-click='logout()' class="btn btn-default">Logout</a>
+            </li>
+            <li ng-if="loggedInUser == null">
+                <a href="/register">Register</a></li>
+            <li ng-if="loggedInUser == null">
+                 <a href="/login">Login</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- ANGULAR DYNAMIC CONTENT -->
+    <div ng-view></div>
+
+</div>
+</body>
+</html>
