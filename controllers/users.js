@@ -3,7 +3,14 @@ var User = require('../models/users');
 
 
 exports.getUsers = function(req, res, next) {
-  res.json('moi');
+  User.find({}, function(err, allUsers) {
+        if(err) {            
+            return res.status(500).json({
+                err: err
+            });
+        }
+        return res.status(200).json({ users: allUsers });
+  });
 };
 
 exports.getUser = function(req, res) {
@@ -152,14 +159,3 @@ exports.deleteAlbum = function(req, res) {
    
     });
 };
-
-
-// Serialize to session  variable
-/*exports.passportSerializeUser = passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-// Deserialize from session variable
-exports.passportDeserializeUser = passport.deserializeUser(function(user, done) {
-  done(null, user);
-});*/

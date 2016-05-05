@@ -15,8 +15,6 @@ angular.module('SpotifyService', []).factory('Spotify', ['$http', function($http
         getAlbums : function(albums, responseHandler) {
             var albumString = albums.toString();
 
-            console.log("lkhaoo");
-            console.log(albumString);
             return $http.get('https://api.spotify.com/v1/albums?ids=' + albumString).success(function(data) {
                 responseHandler(data);
             })

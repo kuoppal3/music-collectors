@@ -39,10 +39,6 @@ angular.module('AuthService', []).factory('Auth',
      $http.get('/status')
       // handle success
       .success(function (data) {
-        console.log("STATUS");
-        console.log(data.status);
-        console.log("USERNMAE");
-        console.log(data.user);
         if(data.status){
           userStatus = true;
           loggedUsername = data.user.username;
@@ -57,7 +53,6 @@ angular.module('AuthService', []).factory('Auth',
       // handle error
       
       .error(function (data) {
-        console.log("FAIL");
         userStatus = false;
         loggedUsername = null;
         loggedUser = null;
