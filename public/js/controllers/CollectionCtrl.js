@@ -7,8 +7,6 @@ angular.module('CollectionCtrl', []).controller('CollectionController', [
     });
     
     $scope.removeAlbum = function(albumId) {
-              console.log("ABLUMB IND");
-      console.log(albumId);  
         User.removeAlbum($rootScope.loggedInUser.username, {'albumId': albumId, 'username': $rootScope.loggedInUser.username});
 
     };

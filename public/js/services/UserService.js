@@ -2,7 +2,7 @@
 angular.module('UserService', []).factory('User', ['$http', function($http) {
 
     return {
-        // call to get all nerds
+        // call to get all users
         get : function() {
             return $http.get('/api/users');
         },
@@ -17,14 +17,10 @@ angular.module('UserService', []).factory('User', ['$http', function($http) {
         },
         
         addAlbum : function(userName, albumData) {
-            console.log("ADDalbumid");
-            console.log(albumData);
             return $http.post('/api/users/' + userName + '/collection', albumData);
         },
         
         removeAlbum : function(userName, albumData) {
-            console.log("REMOVEalbumid");
-            console.log(albumData);
             return $http.delete('/api/users/' + userName + '/collection/' +  albumData.albumId);
         },
         
@@ -33,7 +29,7 @@ angular.module('UserService', []).factory('User', ['$http', function($http) {
             return $http.put('/api/users/' + userName, userData);
         },
 
-        // call to DELETE a nerd
+        // call to DELETE a user
         delete : function(username) {
             return $http.delete('/api/users/' + username);
         },

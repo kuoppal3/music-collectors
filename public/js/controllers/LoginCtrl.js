@@ -4,14 +4,9 @@ angular.module('LoginCtrl', []).controller('LoginController', [
 '$scope', '$location', 'User', 'Auth',
 function($scope, $location, User, Auth){
   $scope.registerUser = function(){
-    console.log(User);
-    console.log("ADSADS");
-    console.log($scope.user);
-    console.log($scope.password);
     User.create(
       {"username": $scope.user,"password": $scope.password}, function(data) {
-      console.log("USERS:");
-      console.log(data.users);
+
     });
   };
   

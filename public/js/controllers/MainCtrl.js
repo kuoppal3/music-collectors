@@ -8,8 +8,6 @@ angular.module('MainCtrl', []).controller('MainController',[
     };
 
     $scope.addAlbum = function(albumId) {
-        console.log("terveisiä:" + albumId);
-        console.log("rootscp:" + $rootScope.loggedInUser.username);
         User.addAlbum($rootScope.loggedInUser.username, {'albumId': albumId, 'username': $rootScope.loggedInUser.username});
     };
 

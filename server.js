@@ -73,6 +73,10 @@ app.post('/api/users', function(req, res) {
 app.get('/api/users/:username', users.getUser);
 app.put('/api/users/:username', users.editUser);
 app.delete('/api/users/:username', users.deleteUser);
+
+app.post('/api/users/:username/collection', users.addAlbum);
+app.delete('/api/users/:username/collection/:id', users.deleteAlbum);
+
 app.post('/api/login', users.login);
 
 app.get('api/logout', function(req, res) {
@@ -83,10 +87,6 @@ app.get('api/logout', function(req, res) {
 });
 
 app.get('/status', users.isAuthenticated);
-
-app.post('/api/users/:username/collection', users.addAlbum);
-app.delete('/api/users/:username/collection/:id', users.deleteAlbum);
-
 
 app.get('*', function(req, res) {
   res.sendFile(__dirname + '/public/views/index.html');
