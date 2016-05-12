@@ -53,15 +53,3 @@ User.getUsers = function(username, fn) {
         fn(null, users);
     });
 };
-
-User.prototype.addAlbum = function(albumData, fn) {
-
-    //var newAlbum = new Album({
-
-    // });
-      
-    // Add order to db
-   // newAlbum.add(function(err, order){
-   //     if(err) throw err;
-    //});  
-};
